@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>RFI · פתרונות מימון לשלטון המקומי בישראל | מש"מ ואיגוד הגזברים</title>
+<meta name="description" content="בקשה לקבלת מידע (RFI) לאיתור פתרונות מימון וכלים פיננסיים לשלטון המקומי בישראל — בהובלת מרכז השלטון המקומי ובשיתוף איגוד הגזברים." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1b2f6b;
+    --navy-2:#213f8d;
+    --royal:#1a75bc;
+    --teal:#00b0a3;
+    --teal-dark:#008f85;
+    --sky:#5ca7d1;
+    --purple:#a73d97;
+    --gold:#d4a017;
+    --gold-soft:#e6c25a;
+    --coral:#e8503a;
+    --ink:#10203f;
+    --muted:#5b6b86;
+    --bg:#f6f8fc;
+    --bg-2:#eef3fb;
+    --white:#ffffff;
+    --card:#ffffff;
+    --line:rgba(27,47,107,.10);
+    --shadow:0 18px 50px -22px rgba(20,40,90,.35);
+    --shadow-sm:0 8px 26px -16px rgba(20,40,90,.40);
+    --radius:22px;
+    --maxw:1180px;
+    --grad-brand:linear-gradient(120deg,var(--navy) 0%,var(--navy-2) 38%,var(--royal) 100%);
+    --grad-teal:linear-gradient(120deg,var(--teal) 0%,var(--royal) 100%);
+    --grad-gold:linear-gradient(120deg,var(--gold) 0%,var(--gold-soft) 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Heebo',system-ui,'Segoe UI',Arial,sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:clamp(18px,4vw,40px)}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-weight:700;font-size:.8rem;letter-spacing:.06em;
+    color:var(--teal-dark);text-transform:uppercase;
+    background:rgba(0,176,163,.10);border:1px solid rgba(0,176,163,.25);
+    padding:7px 16px;border-radius:100px;
+  }
+  .eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--teal)}
+  h2.section-title{
+    font-size:clamp(1.7rem,3.6vw,2.7rem);font-weight:800;line-height:1.2;
+    color:var(--navy);margin:18px 0 14px;letter-spacing:-.01em;
+  }
+  .section-lead{font-size:clamp(1rem,1.5vw,1.18rem);color:var(--muted);max-width:760px}
+  section{padding:clamp(60px,9vw,120px) 0;position:relative}
+
+  /* ---------- HEADER ---------- */
+  header.nav{
+    position:sticky;top:0;z-index:60;
+    backdrop-filter:saturate(160%) blur(14px);
+    background:rgba(246,248,252,.82);
+    border-bottom:1px solid var(--line);
+    transition:box-shadow .3s,background .3s;
+  }
+  header.nav.scrolled{box-shadow:0 10px 30px -20px rgba(20,40,90,.5);background:rgba(255,255,255,.92)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;height:74px}
+  .nav-logos{display:flex;align-items:center;gap:14px}
+  .nav-logos img{height:42px;width:auto;display:block}
+  .nav-logos .divider{width:1px;height:34px;background:var(--line)}
+  .nav-links{display:flex;align-items:center;gap:28px;font-weight:500;font-size:.97rem}
+  .nav-links a{color:var(--ink);opacity:.8;transition:opacity .2s,color .2s;position:relative}
+  .nav-links a:hover{opacity:1;color:var(--navy-2)}
+  .nav-cta{
+    background:var(--grad-gold);color:#3a2c02;font-weight:700;
+    padding:11px 22px;border-radius:100px;box-shadow:0 10px 24px -12px rgba(212,160,23,.7);
+    transition:transform .2s,box-shadow .2s;white-space:nowrap;
+  }
+  .nav-cta:hover{transform:translateY(-2px);box-shadow:0 16px 30px -12px rgba(212,160,23,.8)}
+  .nav-toggle{display:none;background:none;border:0;cursor:pointer;font-size:1.6rem;color:var(--navy)}
+  @media(max-width:900px){
+    .nav-links{display:none}
+    .nav-toggle{display:block}
+    .nav-logos img{height:34px}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;color:#fff;overflow:hidden;
+    background:var(--grad-brand);
+    padding:clamp(70px,11vw,130px) 0 clamp(90px,12vw,150px);
+  }
+  .hero .wrap{position:relative;z-index:3}
+  .hero-blob{position:absolute;border-radius:50%;filter:blur(60px);opacity:.55;z-index:1}
+  .b1{width:520px;height:520px;background:var(--teal);top:-180px;left:-120px;opacity:.30}
+  .b2{width:460px;height:460px;background:var(--purple);bottom:-200px;right:-100px;opacity:.28}
+  .b3{width:360px;height:360px;background:var(--gold);top:40%;right:30%;opacity:.16}
+  .hero-grid-bg{
+    position:absolute;inset:0;z-index:1;opacity:.5;
+    background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
+    background-size:54px 54px;
+    -webkit-mask-image:radial-gradient(circle at 70% 20%,#000,transparent 70%);
+            mask-image:radial-gradient(circle at 70% 20%,#000,transparent 70%);
+  }
+  .hero-badge{
+    display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:.9rem;
+    background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);
+    padding:8px 18px;border-radius:100px;backdrop-filter:blur(6px);
+  }
+  .hero-badge b{color:var(--gold-soft)}
+  .hero h1{
+    font-size:clamp(2.1rem,5vw,3.85rem);font-weight:900;line-height:1.12;
+    letter-spacing:-.015em;margin:22px 0 0;max-width:18ch;
+  }
+  .hero h1 .hl{
+    background:linear-gradient(120deg,var(--gold-soft),#fff);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero p.sub{
+    font-size:clamp(1.05rem,1.9vw,1.35rem);color:rgba(255,255,255,.86);
+    margin-top:22px;max-width:60ch;font-weight:300;
+  }
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:1.02rem;
+    padding:15px 30px;border-radius:100px;cursor:pointer;border:0;transition:transform .2s,box-shadow .2s;
+  }
+  .btn-gold{background:var(--grad-gold);color:#3a2c02;box-shadow:0 16px 34px -14px rgba(212,160,23,.75)}
+  .btn-gold:hover{transform:translateY(-3px);box-shadow:0 22px 40px -14px rgba(212,160,23,.85)}
+  .btn-ghost{background:rgba(255,255,255,.10);color:#fff;border:1px solid rgba(255,255,255,.35)}
+  .btn-ghost:hover{background:rgba(255,255,255,.18);transform:translateY(-3px)}
+  .btn svg{width:18px;height:18px}
+  .hero-partners{
+    display:flex;align-items:center;gap:20px;margin-top:46px;flex-wrap:wrap;
+    padding-top:26px;border-top:1px solid rgba(255,255,255,.16);
+  }
+  .hero-partners .lbl{font-size:.82rem;letter-spacing:.05em;color:rgba(255,255,255,.65);font-weight:500}
+  .hero-partners .chip{
+    display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.95);
+    padding:10px 16px;border-radius:14px;box-shadow:0 12px 30px -16px rgba(0,0,0,.5);
+  }
+  .hero-partners .chip img{height:38px;width:auto;display:block}
+  .hero-partners .role{font-size:.78rem;color:#fff;opacity:.8;font-weight:600;background:rgba(255,255,255,.12);padding:4px 10px;border-radius:8px}
+
+  /* ---------- HERO STAT STRIP ---------- */
+  .stat-strip{
+    position:relative;z-index:5;margin-top:-58px;
+  }
+  .stat-strip .grid{
+    display:grid;grid-template-columns:repeat(5,1fr);gap:1px;
+    background:var(--line);border-radius:var(--radius);overflow:hidden;
+    box-shadow:var(--shadow);border:1px solid var(--line);
+  }
+  .stat{background:var(--white);padding:26px 18px;text-align:center;transition:transform .25s,background .25s}
+  .stat:hover{transform:translateY(-4px);background:#fcfdff}
+  .stat .num{font-size:clamp(1.6rem,2.6vw,2.4rem);font-weight:900;color:var(--navy-2);line-height:1;letter-spacing:-.02em}
+  .stat .num .unit{font-size:.55em;color:var(--teal-dark);font-weight:700;margin-inline-start:3px}
+  .stat .cap{font-size:.86rem;color:var(--muted);margin-top:9px;font-weight:500;line-height:1.4}
+  .stat:nth-child(1) .num{color:var(--navy-2)}
+  .stat:nth-child(2) .num{color:var(--teal-dark)}
+  .stat:nth-child(3) .num{color:var(--purple)}
+  .stat:nth-child(4) .num{color:var(--royal)}
+  .stat:nth-child(5) .num{color:var(--gold)}
+  @media(max-width:900px){.stat-strip .grid{grid-template-columns:repeat(2,1fr)}.stat:last-child{grid-column:1/-1}}
+
+  /* ---------- GENERIC REVEAL ---------- */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}.reveal.d4{transition-delay:.32s}
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+  @media(max-width:880px){.about-grid{grid-template-columns:1fr;gap:30px}}
+  .about p{color:var(--muted);font-size:1.06rem;margin-top:16px}
+  .about strong{color:var(--ink);font-weight:600}
+  .goal-card{
+    background:var(--grad-brand);color:#fff;border-radius:var(--radius);padding:34px;
+    box-shadow:var(--shadow);position:relative;overflow:hidden;
+  }
+  .goal-card::after{content:"";position:absolute;width:220px;height:220px;border-radius:50%;background:var(--teal);opacity:.25;filter:blur(40px);bottom:-80px;left:-60px}
+  .goal-card h3{font-size:1.3rem;font-weight:800;margin-bottom:14px;position:relative}
+  .goal-card ul{list-style:none;display:grid;gap:14px;position:relative}
+  .goal-card li{display:flex;gap:12px;align-items:flex-start;font-size:1rem;color:rgba(255,255,255,.9)}
+  .goal-card li .ic{flex:0 0 26px;width:26px;height:26px;border-radius:8px;background:rgba(255,255,255,.16);display:grid;place-items:center;color:var(--gold-soft);font-weight:800;font-size:.9rem}
+
+  /* ---------- MARKET / DATA VIZ ---------- */
+  .market{background:linear-gradient(180deg,var(--bg) 0%,var(--bg-2) 100%)}
+  .viz-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;margin-top:46px}
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:30px;box-shadow:var(--shadow-sm);transition:transform .3s,box-shadow .3s;position:relative;overflow:hidden;
+  }
+  .card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+  .card .kicker{font-size:.8rem;font-weight:700;letter-spacing:.04em;color:var(--teal-dark);text-transform:uppercase}
+  .card h3{font-size:1.22rem;font-weight:800;color:var(--navy);margin:8px 0 6px}
+  .card p{color:var(--muted);font-size:.97rem}
+  .span6{grid-column:span 6}.span4{grid-column:span 4}.span5{grid-column:span 5}.span7{grid-column:span 7}.span12{grid-column:span 12}
+  @media(max-width:880px){.span6,.span4,.span5,.span7{grid-column:span 12}}
+
+  /* donut */
+  .donut-wrap{display:flex;align-items:center;gap:28px;flex-wrap:wrap;margin-top:10px}
+  .donut{position:relative;width:190px;height:190px;flex:0 0 auto}
+  .donut svg{transform:rotate(-90deg)}
+  .donut .center{position:absolute;inset:0;display:grid;place-items:center;text-align:center}
+  .donut .center .big{font-size:2.1rem;font-weight:900;color:var(--purple);line-height:1}
+  .donut .center .sm{font-size:.74rem;color:var(--muted);font-weight:600;margin-top:2px}
+  .legend{display:grid;gap:12px;flex:1;min-width:180px}
+  .legend .row{display:flex;align-items:center;gap:12px;font-size:.95rem}
+  .legend .dot{width:13px;height:13px;border-radius:4px;flex:0 0 auto}
+  .legend .row b{margin-inline-start:auto;font-weight:800;color:var(--ink)}
+
+  /* comparison bars */
+  .bars{display:grid;gap:26px;margin-top:14px}
+  .bar-item .bar-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:9px}
+  .bar-item .bar-top .lab{font-weight:600;color:var(--ink);font-size:1rem}
+  .bar-item .bar-top .val{font-weight:900;font-size:1.25rem}
+  .bar-track{height:18px;background:var(--bg-2);border-radius:100px;overflow:hidden;position:relative}
+  .bar-fill{height:100%;width:0;border-radius:100px;transition:width 1.3s cubic-bezier(.2,.8,.2,1)}
+  .note-inline{font-size:.86rem;color:var(--muted);margin-top:16px;padding-top:16px;border-top:1px dashed var(--line)}
+
+  /* big highlight number cards */
+  .hl-card{background:var(--grad-teal);color:#fff;display:flex;flex-direction:column;justify-content:center}
+  .hl-card.gold{background:var(--grad-gold);color:#3a2c02}
+  .hl-card .hbig{font-size:clamp(2.2rem,4vw,3rem);font-weight:900;line-height:1;letter-spacing:-.02em}
+  .hl-card p{font-size:1rem;margin-top:10px;font-weight:500}
+  .hl-card.gold p,.hl-card.gold .kicker{color:#5a4408}
+  .hl-card .kicker,.hl-card p{color:rgba(255,255,255,.92)}
+
+  /* ---------- BARRIERS ---------- */
+  .barriers{background:var(--navy);color:#fff;position:relative;overflow:hidden}
+  .barriers::before{content:"";position:absolute;width:480px;height:480px;border-radius:50%;background:var(--purple);opacity:.18;filter:blur(80px);top:-160px;right:-120px}
+  .barriers .section-title{color:#fff}
+  .barriers .section-lead{color:rgba(255,255,255,.75)}
+  .barrier-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:46px}
+  @media(max-width:980px){.barrier-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.barrier-grid{grid-template-columns:1fr}}
+  .barrier{
+    background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:26px;
+    transition:transform .3s,background .3s,border-color .3s;backdrop-filter:blur(4px);
+  }
+  .barrier:hover{transform:translateY(-6px);background:rgba(255,255,255,.10);border-color:rgba(212,160,23,.5)}
+  .barrier .bnum{font-size:.85rem;font-weight:800;color:var(--gold-soft);letter-spacing:.08em}
+  .barrier h4{font-size:1.12rem;font-weight:700;margin:10px 0 8px;color:#fff}
+  .barrier p{font-size:.94rem;color:rgba(255,255,255,.72)}
+
+  /* ---------- SOLUTIONS ---------- */
+  .sol-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:46px}
+  @media(max-width:920px){.sol-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.sol-grid{grid-template-columns:1fr}}
+  .sol{
+    background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;
+    position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s;
+  }
+  .sol:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+  .sol .ic{
+    width:50px;height:50px;border-radius:14px;display:grid;place-items:center;margin-bottom:16px;
+    background:rgba(0,176,163,.12);color:var(--teal-dark);
+  }
+  .sol:nth-child(2) .ic{background:rgba(26,117,188,.12);color:var(--royal)}
+  .sol:nth-child(3) .ic{background:rgba(167,61,151,.12);color:var(--purple)}
+  .sol:nth-child(4) .ic{background:rgba(212,160,23,.14);color:var(--gold)}
+  .sol:nth-child(5) .ic{background:rgba(232,80,58,.12);color:var(--coral)}
+  .sol:nth-child(6) .ic{background:rgba(92,167,209,.16);color:var(--sky)}
+  .sol:nth-child(7) .ic{background:rgba(27,47,107,.10);color:var(--navy-2)}
+  .sol .ic svg{width:26px;height:26px}
+  .sol h4{font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:7px}
+  .sol p{font-size:.94rem;color:var(--muted)}
+  .open-note{
+    margin-top:30px;text-align:center;font-size:.95rem;color:var(--muted);
+    background:rgba(0,176,163,.06);border:1px dashed rgba(0,176,163,.3);border-radius:14px;padding:16px 22px;
+  }
+
+  /* ---------- VALUE ---------- */
+  .value{background:linear-gradient(180deg,var(--bg-2),var(--bg))}
+  .value-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:46px}
+  @media(max-width:880px){.value-grid{grid-template-columns:1fr}}
+  .vcard{
+    background:var(--card);border-radius:var(--radius);padding:32px;border:1px solid var(--line);
+    box-shadow:var(--shadow-sm);position:relative;overflow:hidden;transition:transform .3s;
+  }
+  .vcard:hover{transform:translateY(-6px)}
+  .vcard .vtop{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;color:#fff;margin-bottom:18px;font-weight:900;font-size:1.3rem}
+  .vcard:nth-child(1) .vtop{background:var(--grad-teal)}
+  .vcard:nth-child(2) .vtop{background:var(--grad-gold);color:#3a2c02}
+  .vcard:nth-child(3) .vtop{background:linear-gradient(120deg,var(--purple),var(--royal))}
+  .vcard h4{font-size:1.2rem;font-weight:800;color:var(--navy);margin-bottom:10px}
+  .vcard p{color:var(--muted);font-size:.98rem}
+
+  /* ---------- TIMELINE / SUBMIT ---------- */
+  .submit{background:var(--navy);color:#fff;position:relative;overflow:hidden}
+  .submit::before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;background:var(--teal);opacity:.16;filter:blur(90px);bottom:-200px;left:-120px}
+  .submit .section-title{color:#fff}
+  .submit-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:44px;align-items:start}
+  @media(max-width:880px){.submit-grid{grid-template-columns:1fr;gap:36px}}
+  .timeline{display:grid;gap:8px}
+  .tl-item{display:flex;gap:18px;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.10)}
+  .tl-item:last-child{border-bottom:0}
+  .tl-ic{flex:0 0 48px;width:48px;height:48px;border-radius:14px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);display:grid;place-items:center;color:var(--gold-soft)}
+  .tl-ic svg{width:22px;height:22px}
+  .tl-item h4{font-size:1.05rem;font-weight:700;color:#fff}
+  .tl-item p{font-size:.92rem;color:rgba(255,255,255,.7);margin-top:3px}
+
+  /* email box */
+  .email-box{
+    background:linear-gradient(135deg,rgba(255,255,255,.08),rgba(255,255,255,.03));
+    border:1px solid rgba(255,255,255,.18);border-radius:var(--radius);padding:34px;backdrop-filter:blur(6px);
+    position:relative;
+  }
+  .email-box .tag{display:inline-flex;align-items:center;gap:8px;font-size:.82rem;font-weight:700;letter-spacing:.05em;color:var(--gold-soft);text-transform:uppercase}
+  .email-box h3{font-size:1.5rem;font-weight:800;margin:12px 0 6px;color:#fff}
+  .email-box .desc{font-size:.95rem;color:rgba(255,255,255,.72);margin-bottom:22px}
+  .mail-row{display:grid;gap:12px}
+  .mail-link{
+    display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.96);color:var(--navy);
+    padding:16px 20px;border-radius:14px;font-weight:700;font-size:1.05rem;
+    transition:transform .2s,box-shadow .2s;direction:ltr;justify-content:flex-start;
+  }
+  .mail-link:hover{transform:translateX(-4px);box-shadow:0 14px 30px -14px rgba(0,0,0,.5)}
+  .mail-link .mic{width:42px;height:42px;border-radius:11px;background:var(--grad-teal);display:grid;place-items:center;color:#fff;flex:0 0 auto}
+  .mail-link .mic svg{width:21px;height:21px}
+  .mail-link .copy{margin-inline-start:auto;font-size:.74rem;font-weight:600;color:var(--muted);background:var(--bg-2);padding:5px 10px;border-radius:8px;direction:rtl}
+  .checklist{margin-top:24px;padding-top:22px;border-top:1px solid rgba(255,255,255,.12)}
+  .checklist .ttl{font-size:.85rem;font-weight:700;color:rgba(255,255,255,.85);margin-bottom:12px}
+  .checklist ul{list-style:none;display:grid;gap:9px}
+  .checklist li{display:flex;gap:10px;align-items:flex-start;font-size:.92rem;color:rgba(255,255,255,.78)}
+  .checklist li svg{width:17px;height:17px;color:var(--teal);flex:0 0 auto;margin-top:3px}
+
+  .disclaimer{
+    margin-top:30px;font-size:.84rem;color:rgba(255,255,255,.55);line-height:1.6;
+    background:rgba(0,0,0,.15);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:18px 22px;
+  }
+  .disclaimer b{color:rgba(255,255,255,.8)}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:#0e1a3d;color:rgba(255,255,255,.7);padding:48px 0 36px}
+  .foot-inner{display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap}
+  .foot-logos{display:flex;align-items:center;gap:18px}
+  .foot-logos .chip{background:#fff;border-radius:12px;padding:9px 14px;display:flex;align-items:center}
+  .foot-logos .chip img{height:38px;width:auto;display:block}
+  .foot-meta{font-size:.86rem;text-align:left}
+  .foot-meta b{color:#fff}
+  .foot-bottom{margin-top:30px;padding-top:22px;border-top:1px solid rgba(255,255,255,.1);font-size:.8rem;color:rgba(255,255,255,.45);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+
+  /* toast */
+  .toast{
+    position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(20px);
+    background:var(--navy);color:#fff;padding:12px 22px;border-radius:100px;font-weight:600;font-size:.92rem;
+    box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;z-index:200;
+  }
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <div class="nav-logos">
+      <img src="assets/logo-masham.jpg" alt="מרכז השלטון המקומי בישראל" />
+      <span class="divider"></span>
+      <img src="assets/logo-gizbarim.png" alt="איגוד הגזברים" />
+    </div>
+    <nav class="nav-links">
+      <a href="#about">הרקע</a>
+      <a href="#market">שוק האשראי</a>
+      <a href="#barriers">הכשל המבני</a>
+      <a href="#solutions">מה אנו מחפשים</a>
+      <a href="#value">הערך למשיבים</a>
+    </nav>
+    <a href="#submit" class="nav-cta">להגשת מענה</a>
+    <button class="nav-toggle" aria-label="תפריט" onclick="document.querySelector('.nav-links').style.display='flex'">☰</button>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="top">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-blob b1"></div>
+  <div class="hero-blob b2"></div>
+  <div class="hero-blob b3"></div>
+  <div class="wrap">
+    <span class="hero-badge">📣 בקשה לקבלת מידע · <b>RFI</b></span>
+    <h1>פתרונות מימון וכלים פיננסיים <span class="hl">לשלטון המקומי בישראל</span></h1>
+    <p class="sub">פנייה משותפת לאיתור מודלים, מוצרים ומבני עסקה שיגוונו את מקורות המימון, יוזילו את עלויותיו וישפרו את נגישותו עבור הרשויות המקומיות — בדגש על מימון פיתוח ותשתיות (תב״רים) לצד מימון שוטף.</p>
+    <div class="hero-actions">
+      <a href="#submit" class="btn btn-gold">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        להגשת מענה ל-RFI
+      </a>
+      <a href="#market" class="btn btn-ghost">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 3v18h18M7 14l4-4 3 3 5-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        לנתוני שוק האשראי
+      </a>
+    </div>
+    <div class="hero-partners">
+      <span class="lbl">היוזמה בהובלת</span>
+      <span class="chip"><img src="assets/logo-masham.jpg" alt="מרכז השלטון המקומי" /></span>
+      <span class="lbl">בשיתוף</span>
+      <span class="chip"><img src="assets/logo-gizbarim.png" alt="איגוד הגזברים" /></span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STAT STRIP ===== -->
+<div class="stat-strip">
+  <div class="wrap">
+    <div class="grid">
+      <div class="stat reveal"><div class="num"><span class="count" data-to="17.6" data-dec="1">0</span><span class="unit">מיליארד ₪</span></div><div class="cap">עומס המלוות של הרשויות (2024)</div></div>
+      <div class="stat reveal d1"><div class="num"><span class="count" data-to="2.5" data-dec="1">0</span><span class="unit">מיליארד ₪</span></div><div class="cap">פירעון מלוות שנתי</div></div>
+      <div class="stat reveal d2"><div class="num"><span class="count" data-to="97.8" data-dec="1">0</span><span class="unit">%</span></div><div class="cap">מהאשראי — מהמערכת הבנקאית</div></div>
+      <div class="stat reveal d3"><div class="num"><span class="count" data-to="9.3" data-dec="1">0</span><span class="unit">–15 מיליארד ₪</span></div><div class="cap">פוטנציאל גידול שנתי בשוק*</div></div>
+      <div class="stat reveal d4"><div class="num"><span class="count" data-to="259" data-dec="0">0</span></div><div class="cap">רשויות מקומיות בישראל</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ABOUT ===== -->
+<section id="about" class="about">
+  <div class="wrap about-grid">
+    <div class="reveal">
+      <span class="eyebrow">רקע ומטרת הפנייה</span>
+      <h2 class="section-title">שוק האשראי המוניציפלי בנקודת כשל מבני — וזו ההזדמנות לשנות</h2>
+      <p><strong>מרכז השלטון המקומי בישראל (מש"מ)</strong> הוא הגוף המאגד את כל העיריות והמועצות המקומיות בישראל ומייצג את האינטרסים שלהן מול הכנסת ומשרדי הממשלה. אחד האתגרים המרכזיים של הרשויות הוא חיזוק היכולת לפתח מנועי צמיחה כלכליים — יכולת המוגבלת כיום בשל חסמים רגולטוריים, מחסור במשאבים ובכוח אדם מקצועי, ושונות גבוהה בין הרשויות.</p>
+      <p>מש"מ ואיגוד הגזברים (יחד: <strong>"הגופים הפונים"</strong>) מזמינים גופים פיננסיים, מוסדיים וחוץ-בנקאיים, יזמי מימון, מנהלי קרנות, חברות דירוג/אשראי וגופים פילנתרופיים — להציע פתרונות שירחיבו, יוזילו וישפרו את מימון הרשויות המקומיות בישראל.</p>
+    </div>
+    <div class="goal-card reveal d2">
+      <h3>מטרת ה-RFI</h3>
+      <ul>
+        <li><span class="ic">1</span><span>לאסוף מודלים וכלים פיננסיים מותאמים לרשויות המקומיות</span></li>
+        <li><span class="ic">2</span><span>ללמוד את חסמי השוק והרגולציה מנקודת מבט הגורמים הפיננסיים</span></li>
+        <li><span class="ic">3</span><span>לייצר חדשנות מימונית עם פתרונות מותאמים</span></li>
+        <li><span class="ic">4</span><span>לגבש מהלכי המשך — פיילוטים, מכרז או שינוי מדיניות</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MARKET / DATA ===== -->
+<section id="market" class="market">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center;max-width:780px;margin-inline:auto">
+      <span class="eyebrow">סקירת שוק האשראי המוניציפלי</span>
+      <h2 class="section-title">הנתונים מספרים סיפור של פוטנציאל לא ממומש</h2>
+      <p class="section-lead" style="margin-inline:auto">רשויות מקומיות הן לווה יציב במיוחד — אך השוק ריכוזי, בנקאי כמעט לחלוטין, וממונף הרבה מתחת לפוטנציאל ולמקובל בעולם.</p>
+    </div>
+
+    <div class="viz-grid">
+      <!-- borrower profile -->
+      <div class="card span5 reveal">
+        <span class="kicker">פרופיל הלווה</span>
+        <h3>יציבות תזרימית גבוהה, סיכון אשראי נמוך</h3>
+        <p>גביית הארנונה מקנה לרשויות תזרים יציב וסיכון אשראי נמוך במיוחד — בסיס איתן למינוף לצורכי פיתוח ועצמאות כלכלית.</p>
+        <div class="bars" style="margin-top:24px">
+          <div class="bar-item">
+            <div class="bar-top"><span class="lab">עומס מלוות ממוצע</span><span class="val" style="color:var(--royal)">14%</span></div>
+            <div class="bar-track"><div class="bar-fill" data-w="56" style="background:linear-gradient(90deg,var(--royal),var(--sky))"></div></div>
+          </div>
+          <div class="bar-item">
+            <div class="bar-top"><span class="lab">רשויות איתנות</span><span class="val" style="color:var(--teal-dark)">11%</span></div>
+            <div class="bar-track"><div class="bar-fill" data-w="44" style="background:linear-gradient(90deg,var(--teal),var(--sky))"></div></div>
+          </div>
+        </div>
+        <p class="note-inline">→ מינוף נמוך = פוטנציאל פיתוח שטרם מומש.</p>
+      </div>
+
+      <!-- concentration donut -->
+      <div class="card span7 reveal d1">
+        <span class="kicker">ריכוזיות השוק</span>
+        <h3>97.8% מהאשראי המוניציפלי — מהמערכת הבנקאית המסורתית</h3>
+        <div class="donut-wrap">
+          <div class="donut">
+            <svg width="190" height="190" viewBox="0 0 190 190">
+              <circle cx="95" cy="95" r="78" fill="none" stroke="#eef3fb" stroke-width="26"/>
+              <circle id="donutArc" cx="95" cy="95" r="78" fill="none" stroke="url(#dg)" stroke-width="26" stroke-linecap="round" stroke-dasharray="490" stroke-dashoffset="490"/>
+              <defs><linearGradient id="dg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#a73d97"/><stop offset="1" stop-color="#1a75bc"/></linearGradient></defs>
+            </svg>
+            <div class="center"><div class="big">97.8%</div><div class="sm">בנקאי</div></div>
+          </div>
+          <div class="legend">
+            <div class="row"><span class="dot" style="background:linear-gradient(90deg,#a73d97,#1a75bc)"></span>מערכת בנקאית מסורתית <b>97.8%</b></div>
+            <div class="row"><span class="dot" style="background:#e9edf5"></span>מוסדיים, חברות אשראי, חוץ-בנקאי ואחר <b>2.2%</b></div>
+            <p style="font-size:.9rem;color:var(--muted);margin-top:4px">גופים מוסדיים וחברות אשראי כמעט ואינם נוכחים בשוק — בניגוד למקובל בעולם, המבוסס על מגוון אפיקי גיוס הון (אג"ח מוניציפליות ועוד). עיקר החוב ניטל על ידי ארבע הרשויות הגדולות, באופן לא פרופורציונלי לגודלן באוכלוסייה.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- OECD comparison -->
+      <div class="card span7 reveal">
+        <span class="kicker">השוואה בינלאומית · OECD אוניטרי</span>
+        <h3>החוב המוניציפלי בישראל — פחות מרבע מהמקובל</h3>
+        <p>במדינות ה-OECD האוניטריות (שני רובדי שלטון, בדומה לישראל) החוב המוניציפלי מהווה כ-12% מהחוב הציבורי הכללי — בישראל פחות מ-3%.</p>
+        <div class="bars" style="margin-top:26px">
+          <div class="bar-item">
+            <div class="bar-top"><span class="lab">ממוצע OECD אוניטרי</span><span class="val" style="color:var(--teal-dark)">~12%</span></div>
+            <div class="bar-track"><div class="bar-fill" data-w="100" style="background:linear-gradient(90deg,var(--teal),var(--sky))"></div></div>
+          </div>
+          <div class="bar-item">
+            <div class="bar-top"><span class="lab">ישראל</span><span class="val" style="color:var(--coral)">פחות מ-3%</span></div>
+            <div class="bar-track"><div class="bar-fill" data-w="25" style="background:linear-gradient(90deg,var(--coral),var(--gold))"></div></div>
+          </div>
+        </div>
+        <p class="note-inline">עדות נוספת למינוף הנמוך של הרשויות המקומיות בישראל.</p>
+      </div>
+
+      <!-- potential highlight -->
+      <div class="card span5 hl-card reveal d1">
+        <span class="kicker">פוטנציאל הצמיחה</span>
+        <div class="hbig">9.3–15</div>
+        <p>מיליארד ₪ — היקף שבו ניתן להגדיל את שווי שוק האשראי המוניציפלי <b>מדי שנה</b>, על פי הערכות בדוח מבקר המדינה 2022.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BARRIERS ===== -->
+<section id="barriers" class="barriers">
+  <div class="wrap">
+    <div class="reveal" style="max-width:760px">
+      <span class="eyebrow">נקודת המוצא · מהות הכשל וחסמי הכניסה</span>
+      <h2 class="section-title">מהיכן נובע הכשל בשוק?</h2>
+      <p class="section-lead">אנו מבקשים שכל מענה ייפתח באבחון קצר של הבעיה מנקודת מבטכם. להלן דוגמאות לחסמים המרכזיים (רשימה פתוחה):</p>
+    </div>
+    <div class="barrier-grid">
+      <div class="barrier reveal"><div class="bnum">01</div><h4>כניסת מימון לא-בנקאי</h4><p>מורכבות הקמה, דרישות שקיפות ודיווח ושינוי סביבת הריבית — חסמים בפני מוסדיים, אג"ח ואיגוח.</p></div>
+      <div class="barrier reveal d1"><div class="bnum">02</div><h4>אי-ודאות וזמני אישור</h4><p>תהליכי אישור הלוואות רב-שלביים מייצרים סיכון ריבית ועלויות עקיפות לפרויקטים.</p></div>
+      <div class="barrier reveal d2"><div class="bnum">03</div><h4>שקיפות ובהירות המידע</h4><p>הדוחות הכספיים של הרשויות אינם תואמים את שיטת הדיווח המקובלת בשוק הפרטי.</p></div>
+      <div class="barrier reveal d3"><div class="bnum">04</div><h4>פערי נגישות בין רשויות</h4><p>פערים מהותיים בין רשויות — למשל רשויות פריפריאליות או בחברה הערבית.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SOLUTIONS ===== -->
+<section id="solutions">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center;max-width:800px;margin-inline:auto">
+      <span class="eyebrow">מה אנו מחפשים לקבל · סל פתוח</span>
+      <h2 class="section-title">סל פתרונות פתוח, יצירתי ומותאם</h2>
+      <p class="section-lead" style="margin-inline:auto">ניתן להציע מוצרים פיננסיים, מבני עסקה, מנגנוני הקטנת סיכון ושירותי מעטפת — לרבות שילובים בין כמה כלים. הרשימה היא דוגמה בלבד:</p>
+    </div>
+    <div class="sol-grid">
+      <div class="sol reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20M6 15h4"/></svg></div>
+        <h4>אשראי ישיר / מוסדי</h4><p>הלוואות ארוכות-טווח וקווי אשראי לרשויות מגופים מוסדיים.</p>
+      </div>
+      <div class="sol reveal d1">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h13l5 5v5h-3M3 7v10h2M16 17H9"/><circle cx="7" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg></div>
+        <h4>אשראי ספקים</h4><p>פתרונות מימון לשרשרת ההתקשרויות והספקים של הרשות.</p>
+      </div>
+      <div class="sol reveal d2">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9 9.5c0-1.4 1.3-2 3-2s3 .8 3 2-1.3 2-3 2-3 .8-3 2 1.3 2 3 2 3-.6 3-2"/></svg></div>
+        <h4>קרנות ייעודיות ואזוריות</h4><p>קרנות בין-רשותיות, כולל מנגנוני שיתוף-סיכון.</p>
+      </div>
+      <div class="sol reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V9l8-5 8 5v10M4 19h16M9 19v-5h6v5"/></svg></div>
+        <h4>אג"ח מוניציפליות וירוקות</h4><p>הנפקות אג"ח, אג"ח ירוקות ומיחזור חוב קיים.</p>
+      </div>
+      <div class="sol reveal d1">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l5-5 4 4 8-9M21 7v5M21 7h-5"/></svg></div>
+        <h4>איגוח ומימון מבוסס-תזרים</h4><p>מימון מבוסס תזרימי הכנסות — למשל ארנונה והיטלים.</p>
+      </div>
+      <div class="sol reveal d2">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18M3 12h9"/></svg></div>
+        <h4>Blended Finance</h4><p>שילוב הון פילנתרופי, ערבויות ומבני First-Loss עם הון פרטי.</p>
+      </div>
+      <div class="sol reveal d3">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4M7 9l2.5 2.5L7 14M13 14h4"/></svg></div>
+        <h4>כלים תפעוליים דיגיטליים</h4><p>פלטפורמות דיגיטליות וליווי פיננסי להפחתת עלות העסקה.</p>
+      </div>
+      <div class="sol reveal d3" style="display:flex;flex-direction:column;justify-content:center;background:var(--grad-brand);color:#fff;border:0">
+        <h4 style="color:#fff;font-size:1.2rem">…ורעיונות נוספים שלכם</h4>
+        <p style="color:rgba(255,255,255,.85)">נשמח לשמוע גם אילו צעדים ושינויים רגולטוריים נדרשים כדי שהפתרונות יהיו ישימים.</p>
+      </div>
+    </div>
+    <div class="open-note">💡 כל מענה מתבקש להתייחס: לכשל שהוא פותר, מדוע הוא מתאפשר כעת, ולאילו רשויות הוא מתאים.</div>
+  </div>
+</section>
+
+<!-- ===== VALUE ===== -->
+<section id="value" class="value">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center;max-width:760px;margin-inline:auto">
+      <span class="eyebrow">הערך למשיבים</span>
+      <h2 class="section-title">מדוע כדאי להצטרף למהלך?</h2>
+    </div>
+    <div class="value-grid">
+      <div class="vcard reveal">
+        <div class="vtop">👁</div>
+        <h4>חשיפה לרשויות המקומיות</h4>
+        <p>אפשרות לחשיפת הצעת הערך הייחודית שלכם לרשויות המקומיות, באמצעות חשיפה (לא המלצה) של מרכז השלטון המקומי ואיגוד הגזברים.</p>
+      </div>
+      <div class="vcard reveal d1">
+        <div class="vtop">₪</div>
+        <h4>הגדלת נפח פעילות</h4>
+        <p>פוטנציאל פעילות חדש ולא ממומש בהיקף של מיליארדי שקלים — עבור 259 רשויות מקומיות ברחבי הארץ.</p>
+      </div>
+      <div class="vcard reveal d2">
+        <div class="vtop">⚡</div>
+        <h4>שותפות אסטרטגית</h4>
+        <p>הזדמנות לקחת חלק בעיצוב מחדש של השוק המוניציפלי בישראל ובהסרת חסמי רגולציה.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SUBMIT ===== -->
+<section id="submit" class="submit">
+  <div class="wrap">
+    <div class="reveal" style="max-width:760px">
+      <span class="eyebrow">כללים, הגשה והבהרות</span>
+      <h2 class="section-title">איך מגישים מענה?</h2>
+    </div>
+    <div class="submit-grid">
+      <!-- timeline -->
+      <div class="reveal">
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3" stroke-linecap="round"/></svg></div>
+            <div><h4>מועד אחרון להגשה</h4><p>עד 30 ימים ממועד פרסום ה-RFI.</p></div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M12 8v4M12 16h.01" stroke-linecap="round"/></svg></div>
+            <div><h4>שאלות הבהרה</h4><p>ניתן להגיש עד 7 ימים לפני מועד ההגשה.</p></div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8"/><path d="M21 12v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h11"/></svg></div>
+            <div><h4>מה לכלול בהגשה</h4><p>שם הארגון/המוסד המגיש, שם איש קשר, תפקיד ופרטי יצירת קשר.</p></div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></div>
+            <div><h4>נספחים (מומלץ)</h4><p>דוגמת Term Sheet, תרשימי מבנה, ניסיון רלוונטי ותיאור פיילוטים דומים.</p></div>
+          </div>
+        </div>
+        <div class="disclaimer">
+          <b>לתשומת ליבכם:</b> ה-RFI מיועד ללמידה ואינו מהווה מכרז, התחייבות או הזמנה לקבלת הצעות מחיר, ואינו מקנה למשיבים זכות, בלעדיות, קדימות או ציפייה להתקשרות עתידית. על המשיבים לשמור על סודיות מלאה ולהצהיר על היעדר ניגוד עניינים. התוצרים שיועברו יהיו קניין הגופים הפונים.
+        </div>
+      </div>
+
+      <!-- email box -->
+      <div class="email-box reveal d1">
+        <span class="tag">⭐ הגשה בדוא"ל</span>
+        <h3>שולחים את המענה לשתי הכתובות</h3>
+        <p class="desc">יש להגיש את המענה במייל לשתי הכתובות הבאות. לחיצה על כתובת פותחת הודעה חדשה.</p>
+        <div class="mail-row">
+          <a class="mail-link" href="mailto:anatl@masham.org.il?cc=group_economy@masham.org.il&subject=מענה%20ל-RFI%20מימון%20שלטון%20מקומי">
+            <span class="mic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+            anatl@masham.org.il
+            <span class="copy" onclick="copyMail(event,'anatl@masham.org.il')">העתקה</span>
+          </a>
+          <a class="mail-link" href="mailto:group_economy@masham.org.il?cc=anatl@masham.org.il&subject=מענה%20ל-RFI%20מימון%20שלטון%20מקומי">
+            <span class="mic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+            group_economy@masham.org.il
+            <span class="copy" onclick="copyMail(event,'group_economy@masham.org.il')">העתקה</span>
+          </a>
+        </div>
+        <div class="checklist">
+          <div class="ttl">לכל פנייה והגשה יש לצרף:</div>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>שם הארגון / המוסד המגיש</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>שם איש קשר ותפקיד</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>פרטי יצירת קשר מלאים</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-inner">
+      <div class="foot-logos">
+        <span class="chip"><img src="assets/logo-masham.jpg" alt="מרכז השלטון המקומי בישראל" /></span>
+        <span class="chip"><img src="assets/logo-gizbarim.png" alt="איגוד הגזברים" /></span>
+      </div>
+      <div class="foot-meta">
+        <b>פנייה משותפת — בהובלת מרכז השלטון המקומי ובשיתוף איגוד הגזברים</b><br>
+        בקשה לקבלת מידע (RFI) · פתרונות מימון וכלים פיננסיים לשלטון המקומי בישראל
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© מרכז השלטון המקומי בישראל · איגוד הגזברים</span>
+      <span>למען שלטון יציב וחזק</span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast">הכתובת הועתקה ✓</div>
+
+<script>
+  // nav shadow on scroll
+  const nav=document.getElementById('nav');
+  addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>10));
+
+  // reveal on scroll
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // count-up
+  function animateCount(el){
+    const to=parseFloat(el.dataset.to), dec=parseInt(el.dataset.dec||0);
+    const dur=1500, t0=performance.now();
+    function step(now){
+      const p=Math.min((now-t0)/dur,1);
+      const e=1-Math.pow(1-p,3);
+      el.textContent=(to*e).toLocaleString('he-IL',{minimumFractionDigits:dec,maximumFractionDigits:dec});
+      if(p<1)requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  const cio=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){animateCount(e.target);cio.unobserve(e.target)}})},{threshold:.6});
+  document.querySelectorAll('.count').forEach(el=>cio.observe(el));
+
+  // bar fills
+  const bio=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.style.width=e.target.dataset.w+'%';bio.unobserve(e.target)}})},{threshold:.4});
+  document.querySelectorAll('.bar-fill').forEach(el=>bio.observe(el));
+
+  // donut arc (97.8% of full circle), circumference ~490
+  const arc=document.getElementById('donutArc');
+  const dio=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){
+    const C=490; arc.style.transition='stroke-dashoffset 1.6s cubic-bezier(.2,.8,.2,1)';
+    arc.style.strokeDashoffset=C*(1-0.978);
+    dio.unobserve(e.target);
+  }})},{threshold:.5});
+  if(arc)dio.observe(arc);
+
+  // copy mail
+  function copyMail(ev,addr){
+    ev.preventDefault();ev.stopPropagation();
+    navigator.clipboard&&navigator.clipboard.writeText(addr);
+    const t=document.getElementById('toast');t.classList.add('show');
+    setTimeout(()=>t.classList.remove('show'),1800);
+  }
+</script>
+</body>
+</html>
