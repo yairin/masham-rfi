@@ -159,8 +159,8 @@
   .stat:hover{transform:translateY(-4px);background:#fcfdff}
   .stat .num{font-size:clamp(1.5rem,2.5vw,2.3rem);font-weight:900;line-height:1;letter-spacing:-.02em;display:flex;align-items:baseline;justify-content:center;gap:4px}
   .stat .num .unit{font-size:.5em;font-weight:800}
-  /* בידוד טווח מספרים כ-LTR כדי שהמקף לא יתהפך ל"מינוס" בכיווניות RTL */
-  .ltr-num{direction:ltr;unicode-bidi:isolate;white-space:nowrap;display:inline-block}
+  /* טווח מספרים: בידוד RTL — המקף לא הופך ל"מינוס", והקריאה היא 9.3 ואז 15 */
+  .range-num{direction:rtl;unicode-bidi:isolate;white-space:nowrap;display:inline-block}
   .stat .cap{font-size:.86rem;color:var(--muted);margin-top:9px;font-weight:500;line-height:1.4}
   /* (א) צבע אחיד בכל רובריקה — המספר והיחידה באותו צבע בכל תיבה */
   .stat:nth-child(1) .num{color:var(--navy-2)}
@@ -209,7 +209,7 @@
   .donut{position:relative;width:200px;height:200px;flex:0 0 auto}
   .donut .center{position:absolute;inset:0;display:grid;place-items:center;text-align:center}
   .donut .center .big{font-size:2.15rem;font-weight:900;color:var(--purple);line-height:1}
-  .donut .center .sm{font-size:.74rem;color:var(--muted);font-weight:600;margin-top:3px}
+  .donut .center .sm{position:absolute;top:61%;left:50%;transform:translateX(-50%);font-size:.74rem;color:var(--muted);font-weight:600;white-space:nowrap}
   .legend{display:grid;gap:11px;flex:1;min-width:200px}
   .legend .row{display:flex;align-items:center;gap:12px;font-size:.95rem}
   .legend .dot{width:13px;height:13px;border-radius:4px;flex:0 0 auto}
@@ -425,7 +425,7 @@
       <div class="stat reveal"><div class="num"><span class="count" data-to="17.6" data-dec="1">0</span><span class="unit">מיליארד ₪</span></div><div class="cap">עומס המלוות של הרשויות (2024)</div></div>
       <div class="stat reveal d1"><div class="num"><span class="count" data-to="2.5" data-dec="1">0</span><span class="unit">מיליארד ₪</span></div><div class="cap">פירעון מלוות שנתי</div></div>
       <div class="stat reveal d2"><div class="num"><span class="count" data-to="97.8" data-dec="1">0</span><span class="unit">%</span></div><div class="cap">מהאשראי — מהמערכת הבנקאית</div></div>
-      <div class="stat reveal d3"><div class="num"><span class="ltr-num">9.3–15</span><span class="unit">מיליארד ₪</span></div><div class="cap">פוטנציאל גידול שנתי בשוק</div></div>
+      <div class="stat reveal d3"><div class="num"><span class="range-num">9.3–15</span><span class="unit">מיליארד ₪</span></div><div class="cap">פוטנציאל גידול שנתי בשוק</div></div>
       <div class="stat reveal d4"><div class="num"><span class="count" data-to="259" data-dec="0">0</span></div><div class="cap">רשויות מקומיות בישראל</div></div>
     </div>
   </div>
@@ -528,7 +528,7 @@
       <!-- potential highlight -->
       <div class="card span4 hl-card reveal d1">
         <span class="kicker">פוטנציאל הצמיחה</span>
-        <div class="hbig"><span class="ltr-num">9.3–15</span> <span class="hunit">מיליארד ₪</span></div>
+        <div class="hbig"><span class="range-num">9.3–15</span> <span class="hunit">מיליארד ₪</span></div>
         <p>היקף שבו ניתן להגדיל את שווי שוק האשראי המוניציפלי <b>מדי שנה</b>, על פי הערכות בדוח מבקר המדינה 2022.</p>
       </div>
     </div>
